@@ -1,2 +1,2 @@
-# aht10_simple
- aht10 temperature and rh light weight as possible
+### aht10_simple
+ aht10 temperature and humidity light weight as possible
