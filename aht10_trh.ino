@@ -37,7 +37,7 @@ void loop()
   Serial.print(" | ");
   Serial.print(rhRead());
   Serial.print(" | ");
-  //Serial.print(rh.retinval(96));
+  Serial.print(th.retinval(96));
   Serial.println();
   delay(3000);
 

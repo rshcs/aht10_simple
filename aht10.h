@@ -3,6 +3,7 @@
 #include "Arduino.h"
 
 class aht10th
+{
 private:
 	int x = 5;
 	
@@ -13,5 +14,3 @@ public:
 };
 
 #endif
-
-
