@@ -13,15 +13,14 @@
 class aht10th
 {
 private:
-	//int x = 5;
 	uint8_t readByte[7] = {0, 0, 0, 0, 0, 0}; // received data buffer
 	boolean trigFlag = 0; // If triger(1) measurement or not(1)
 	uint32_t reqTmr = 0;// To make a delay between trigger to read data
 
 public:
 
-	aht10th();
-	int16_t retinval(int16_t inv);
+	//aht10th();
+	//int16_t retinval(int16_t inv);
 	double rhRead();
 	double tempRead();
 	void reqData();
@@ -31,4 +30,5 @@ public:
 
 #endif
 
-//extern aht10th aht;
+extern aht10th aht;
+

@@ -3,17 +3,17 @@
 //#include <Wire.h>
 
 //aht10th aht;
-
+/*
 aht10th::aht10th()
 {
 	//int inv = inval;
 }
-
+/*
 int16_t aht10th::retinval(int16_t inv)
 {
 	return inv;
 }
-
+*/
 double aht10th::rhRead()
 {
 	uint32_t rhData;
@@ -70,3 +70,5 @@ void aht10th::begin()
 	Wire.begin();
 	//reqTmr = millis();
 }
+
+aht10th aht;
