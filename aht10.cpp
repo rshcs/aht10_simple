@@ -1,6 +1,8 @@
 //#include "Arduino.h"
 #include "aht10.h"
-#include <Wire.h>
+//#include <Wire.h>
+
+//aht10th aht;
 
 aht10th::aht10th()
 {
@@ -41,17 +43,30 @@ double aht10th::tempRead()
 
 void aht10th::reqData()
 {
-  Wire.requestFrom(I2C_ADDR, 6);
+  //if(trigFlag && (millis() - reqTmr > 90))// Sensor takes 75millis to prepare data after triggering
+  // The library forcefully waits 90 millis before requesting the data
   
+  Wire.requestFrom(I2C_ADDR, 6);
   for(int i = 0; i < 6; i++)
   {
   	readByte[i] = Wire.read();
   }
+  trigFlag = 0; 	
+  
 }
 
-void trigMeasure()
+void aht10th::trigMeasure()
 {
+  //if(!trigFlag)// Avoid triger before requsting the data
   Wire.beginTransmission(I2C_ADDR);
   Wire.write(TRIG_MEASURE);
   Wire.endTransmission();
+  //trigFlag = 1;
+  //reqTmr = millis();
+}
+
+void aht10th::begin()
+{
+	Wire.begin();
+	//reqTmr = millis();
 }
