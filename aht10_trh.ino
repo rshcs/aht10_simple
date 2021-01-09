@@ -1,19 +1,10 @@
 
 #include "aht10.h"
 
-#define I2C_ADDR 0x38
-#define INIT 0xE1
-#define TRIG_MEASURE 0xAC
-
-//aht10th aht;
-
 void setup() 
 {
-  pinMode(13, OUTPUT);
-  digitalWrite(13, LOW);
   Serial.begin(9600);
-  //Wire.begin();
-  aht.begin();
+  aht.begin(); // or Wire.begin()
   delay(200);
 
 }
@@ -21,14 +12,11 @@ void setup()
 void loop() 
 {
   aht.trigMeasure();
-  delay(200);
+  delay(100); // Data request interval after the trigger must be longer than 75millis
+  aht.reqData(); // Requsts all bytes 
+  Serial.print(aht.tempRead()); // Print temperature value
+  Serial.print(" | ");
+  Serial.println(aht.rhRead()); // Print humidity value
   
-  aht.reqData();
-  Serial.print(aht.tempRead());
-  Serial.print(" || ");
-  Serial.print(aht.rhRead());
-  
-  Serial.println();
-  
-  delay(3000);
+  delay(10000); // If data request interval smaller than 2S internal temperature of the sensor could go high
 }

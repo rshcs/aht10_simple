@@ -7,25 +7,20 @@
 #endif
 //---Sensor I2C Address and Commands
 #define I2C_ADDR 0x38
-#define INIT 0xE1
+//#define INIT 0xE1
 #define TRIG_MEASURE 0xAC
 
 class aht10th
 {
 private:
 	uint8_t readByte[7] = {0, 0, 0, 0, 0, 0}; // received data buffer
-	boolean trigFlag = 0; // If triger(1) measurement or not(1)
-	uint32_t reqTmr = 0;// To make a delay between trigger to read data
 
 public:
-
-	//aht10th();
-	//int16_t retinval(int16_t inv);
-	double rhRead();
+	double rhRead(); 
 	double tempRead();
-	void reqData();
-	void trigMeasure();
-	void begin();
+	void reqData(); // Requsts and store all six data bytes in a buffer
+	void trigMeasure(); // Trigger a measurement
+	void begin(); // Wire.begin()
 };
 
 #endif
