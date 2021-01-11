@@ -2,14 +2,16 @@
 
  aht10 temperature and rh light weight as possible.   
  - This library tested with AHT10 and AHT15 sensors
-
+---
  #### Available Functions
 
  - [x] Temperature reading
  - [x] Humidity reading 
  - [ ] Soft reset
  - [ ] Status read
+---
 
+#### Example code:
 
 ```
 #include "aht10.h"
@@ -33,7 +35,7 @@ void loop()
   delay(10000); // If data request interval smaller than 2S internal temperature of the sensor could go high
 }
 ```
-
+---
 #### Output -> Serial print     
 
 ![Serial print](https://i.ibb.co/tsyZgbx/th-data.jpg)
