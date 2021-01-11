@@ -36,7 +36,7 @@ void loop()
 }
 ```
 ---
-#### Output -> Serial print     
-
+#### Output -> Serial print 
+    The first column shows temperature and the second columns shows humidity.
 ![Serial print](https://i.ibb.co/tsyZgbx/th-data.jpg)
 
